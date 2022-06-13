@@ -85,7 +85,7 @@ const darkTheme = createTheme({
 export { lightTheme, darkTheme }
 
 const appTheme = (): Theme => {
-  const { lightMode } = useSettings()
+  // const { lightMode } = useSettings()
 
   // const defaultTheme = lightMode ? lightTheme : darkTheme
   const defaultTheme = lightTheme
