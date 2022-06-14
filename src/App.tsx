@@ -1,5 +1,7 @@
 import React from 'react'
 import { StyledEngineProvider } from '@mui/material'
+import { SnackbarProvider } from 'notistack'
+import { SettingsContextProvider } from 'core/contexts/theme-context'
 import { Theme } from 'components'
 import './i18n'
 
@@ -11,7 +13,11 @@ function App (): React.ReactElement {
 
   return (
     <StyledEngineProvider>
-      <Theme>{content}</Theme>
+      <SettingsContextProvider>
+        <Theme>
+          <SnackbarProvider maxSnack={3}>{content}</SnackbarProvider>
+        </Theme>
+      </SettingsContextProvider>
     </StyledEngineProvider>
   )
 }
