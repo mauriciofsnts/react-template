@@ -14,16 +14,13 @@ import {
 } from 'core/adapters/redux'
 
 const client = new ApiClient()
+const controller = new AuthenticationController(makeApiURL('/auth'), client)
 
 export const rootAuthenticationSaga = [
   takeLatest(
     onAuth.type,
     createSagaRequest<AuthenticationParams>({
-      request: async (params) =>
-        await new AuthenticationController(
-          makeApiURL('/admin/auth/login'),
-          client
-        ).auth(params),
+      request: async (params) => controller.auth(params),
       onError: onAuthError,
       onLoad: onAuthLoad,
       onSuccess: onAuthSuccess
