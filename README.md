@@ -22,6 +22,31 @@ A --> D
  - **View** é simplesmente os componentes visuais que são apresentados, ou seja, tudo o que aparece na tela para o usuário.
  - **Dispatcher** é como uma central da sua aplicação. Uma central responsável por registrar callbacks e emitir eventos.   
  - **Store** é responsável por saber quais são os dados que sua view precisa consumir
+
+Para agilizar a criação e manutenção dos reducers utilizamos o @reduxjs/toolkit
+
+```js
+const exampleSlice = createSlice({
+	name: 'example',
+	initialState: initialState,
+	reducers: {
+		// ação que o irá disparar a rotina de redux-saga
+		onGetExample(_state, _action:  PayloadAction<ExampleParams>) {},
+		// ação que irá controlar o effect de loading da api
+		onGetExampleLoad(state, action) {
+			return { ...state, exampleLoad:  action.payload }
+		},
+		// ação que irá receber o resultado da api
+		onGetExampleSuccess(state, action) {
+			return { ...state, example:  action.payload, exampleError:  undefined }
+		},
+		// ação que irá receber o erro quando houver problemas na requisição
+		onGetExampleError(state, action) {
+			return { ...state, example:  undefined, exampleError:  action.payload }
+		}
+	}
+})
+```
  
 
 ### Requsição ( effects )
@@ -29,6 +54,7 @@ A --> D
 Para realizar requisições básicas temos um fluxo genérico para gerenciar os effects. 
 
 ```js
+// core/adapters/modules/example.saga
 const client =  new ApiClient()
 const controller =  new ExampleController(makeApiURL('/example'), client)
 
@@ -41,7 +67,7 @@ export const rootExampleSaga = [
 			onError: onAuthError, // action que será disparada quando houver erro
 			onLoad: onAuthLoad,   // action que irá iniciar/finalizar a rotina da requisição
 			onSuccess: onAuthSuccess // action que será disparada quando houver sucesso
-		})
+	})
 )]
 ```
 ##
