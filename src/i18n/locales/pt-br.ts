@@ -7,7 +7,9 @@ export const ptBrTranslations = {
     createAnAccountNow: 'Criar uma conta agora',
     opsPageNotFound: 'Oppss.. Página não encontrada',
     backToTheSite: 'Voltar para o site',
-    rememberMe: 'Lembre de mim'
+    rememberMe: 'Lembre de mim',
+    language: 'Idioma',
+    settings: 'Configurações'
   }
 }
 

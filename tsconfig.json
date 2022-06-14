@@ -18,5 +18,6 @@
     "baseUrl": "src"
   },
   "include": ["src", "cypress"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "exclude": ["cypress"]
 }

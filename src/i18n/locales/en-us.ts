@@ -7,7 +7,9 @@ export const enUsTranslations = {
     createAnAccountNow: 'Create an account now',
     opsPageNotFound: 'Ops .. page not found',
     backToTheSite: 'Back to the site',
-    rememberMe: 'Remember me'
+    rememberMe: 'Remember me',
+    language: 'Language',
+    settings: 'Settings'
   }
 }
 
