@@ -1,4 +1,4 @@
-import { HttpStatusCode } from 'core/entities'
+import { HttpResponse, HttpStatusCode } from 'core/entities'
 import { put } from 'redux-saga/effects'
 
 interface OptionsType<P> {
@@ -11,11 +11,6 @@ interface OptionsType<P> {
 interface IActionCreator<P> {
   type: string
   payload: P
-}
-
-export type HttpResponse = {
-  statusCode: HttpStatusCode
-  body?: any
 }
 
 export function createSagaRequest<A> (options: OptionsType<A>) {
