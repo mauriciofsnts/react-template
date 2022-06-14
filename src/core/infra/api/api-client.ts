@@ -1,14 +1,14 @@
-import axios, { AxiosRequestHeaders, AxiosResponse } from "axios";
-import { AuthenticationModel, HttpClient, HttpRequest, HttpResponse } from "core/entities";
-import { InvalidCredentialsError } from "core/errors/invalid-credentials-error";
-import { SessionStorage } from "core/infra";
+import axios, { AxiosRequestHeaders, AxiosResponse } from 'axios'
+import { AuthenticationModel, HttpClient, HttpRequest, HttpResponse } from 'core/entities'
+import { InvalidCredentialsError } from 'core/errors/invalid-credentials-error'
+import { SessionStorage } from 'core/infra'
 
 export class ApiClient implements HttpClient {
-  async request(
+  async request (
     data: HttpRequest,
     unauthorized?: boolean
   ): Promise<HttpResponse> {
-    let axiosResponse: AxiosResponse;
+    let axiosResponse: AxiosResponse
 
     try {
       axiosResponse = await axios.request({
@@ -18,30 +18,30 @@ export class ApiClient implements HttpClient {
         headers: unauthorized
           ? data.headers
           : this.applyDefaultConfig(data.headers),
-        params: data.params,
-      });
+        params: data.params
+      })
     } catch (error: any) {
-      axiosResponse = error.response;
+      axiosResponse = error.response
     }
     return {
       statusCode: axiosResponse?.status,
-      body: axiosResponse?.data ?? axiosResponse,
-    };
+      body: axiosResponse?.data ?? axiosResponse
+    }
   }
 
-  private applyDefaultConfig(
+  private applyDefaultConfig (
     headers: AxiosRequestHeaders
   ): AxiosRequestHeaders {
-    const session = new SessionStorage();
-    const token = session.get("token") as AuthenticationModel;
+    const session = new SessionStorage()
+    const token = session.get('token') as AuthenticationModel
 
     if (token?.accessToken) {
       return {
         Authorization: `Bearer ${token.accessToken}`,
-        ...headers,
-      };
+        ...headers
+      }
     } else {
-      throw new InvalidCredentialsError();
+      throw new InvalidCredentialsError()
     }
   }
 }
