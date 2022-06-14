@@ -1,10 +1,10 @@
-import React from "react";
-import LoginPresenter from "./login-presenter";
+import React from 'react'
+import LoginPresenter from './login-presenter'
 
-type Props = {};
+type Props = {}
 
 const LoginWrapper: React.FC<Props> = () => {
-  return <LoginPresenter />;
-};
+  return <LoginPresenter />
+}
 
-export default LoginWrapper;
+export default LoginWrapper

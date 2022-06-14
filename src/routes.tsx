@@ -1,9 +1,20 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
+
 import * as Page from './pages'
+
 import AuthLayout from './layouts/auth'
+import AppLayout from './layouts/app'
 
 const routes = [
+  {
+    path: 'portal',
+    element: <AppLayout />,
+    children: [
+      { path: 'home', element: <Page.Home /> },
+      { path: '*', element: <Navigate to="/portal/home" /> }
+    ]
+  },
   {
     path: '',
     element: <AuthLayout />,

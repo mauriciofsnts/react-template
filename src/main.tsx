@@ -1,13 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, { StrictMode } from 'react'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
+import { createRoot } from 'react-dom/client'
+import { Provider } from 'react-redux'
+import store from 'core/infra/frameworks/redux'
 
-ReactDOM.render(
-  <React.StrictMode>
+const rootElement = document.getElementById('root')
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = createRoot(rootElement!)
+
+root.render(
+  <StrictMode>
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </StrictMode>
 )

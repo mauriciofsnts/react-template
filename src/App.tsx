@@ -11,8 +11,7 @@ function App (): React.ReactElement {
 
   return (
     <StyledEngineProvider>
-      {/* <Theme>{content}</Theme> */}
-      hehehe
+      <Theme>{content}</Theme>
     </StyledEngineProvider>
   )
 }
