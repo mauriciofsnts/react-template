@@ -1,4 +1,4 @@
-# React-Template
+# React-Template!
 
 React-Template é um modelo de painel de administração totalmente responsivo construído com React 18.0.0 e Material-UI.
 
@@ -22,13 +22,9 @@ A --> D
  - **View** é simplesmente os componentes visuais que são apresentados, ou seja, tudo o que aparece na tela para o usuário.
  - **Dispatcher** é como uma central da sua aplicação. Uma central responsável por registrar callbacks e emitir eventos.   
  - **Store** é responsável por saber quais são os dados que sua view precisa consumir
+ 
 
 ### Requsição ( effects )
-
-
-
-
-
 
 E isso produzirá o seguinte fluxograma: 
 
