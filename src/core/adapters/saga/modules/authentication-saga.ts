@@ -20,7 +20,7 @@ export const rootAuthenticationSaga = [
   takeLatest(
     onAuth.type,
     createSagaRequest<AuthenticationParams>({
-      request: async (params) => controller.auth(params),
+      request: async (params) => await controller.auth(params),
       onError: onAuthError,
       onLoad: onAuthLoad,
       onSuccess: onAuthSuccess
