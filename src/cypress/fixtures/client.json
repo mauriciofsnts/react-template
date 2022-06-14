@@ -1,0 +1,10 @@
+{
+  "clientManagerId": "936",
+  "createdAt": "2022-04-19T13:24:46.932Z",
+  "custodianBankId": "310953ac-a1f3-4e48-8f63-09505cc0a9c1",
+  "document": "76955941000140",
+  "id": "019a5a26-37b6-47a6-b11e-2f98598a4e9d",
+  "name": "Arthur Boldo Banks",
+  "setup": { "status": "INCOMPLETE", "missing": ["PAYMENT_ACCOUNT_PROFILE"] },
+  "status": "OPEN"
+}

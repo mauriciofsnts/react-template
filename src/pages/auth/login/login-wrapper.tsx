@@ -39,7 +39,7 @@ const LoginWrapper: React.FC = () => {
     }
 
     if (authError) {
-      enqueueSnackbar(<span id="snack_auth_error">{authError.error}</span>, {
+      enqueueSnackbar(<span id="snack_error">{authError.error}</span>, {
         variant: 'error'
       })
     }

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "types": ["cypress"],
+    "esModuleInterop": true,
+    "target": "ES6",
+    "moduleResolution": "Node"
+  },
+  "include": [
+    "../node_modules/cypress",
+    "./*/*.ts",
+    "./support/mocks/*.ts"
+  ]
+}
