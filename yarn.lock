@@ -1909,6 +1909,11 @@ ignore@^5.1.1, ignore@^5.2.0:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.0.tgz#6d3bac8fa7fe0d45d9f9be7bac2fc279577e345a"
   integrity sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==
 
+imask@^6.1.0:
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/imask/-/imask-6.4.2.tgz#f1c67e6961640bf5b09d7b4a34dcf4f9a3df7e22"
+  integrity sha512-xvEgbTdk6y2dW2UAysq0NRPmO6PuaXM5NHIt4TXEJEwXUHj26M0p/fXqyrSJdNXFaGVOtqYjPRnNdrjQQhDuuA==
+
 immer@^9.0.7:
   version "9.0.15"
   resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.15.tgz#0b9169e5b1d22137aba7d43f8a81a495dd1b62dc"
@@ -2424,6 +2429,14 @@ react-i18next@^11.17.1:
     "@babel/runtime" "^7.14.5"
     html-escaper "^2.0.2"
     html-parse-stringify "^3.0.1"
+
+react-imask@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/react-imask/-/react-imask-6.1.0.tgz#0b9b5e9b210aa82eb570f4b5b45199a888a0f8e7"
+  integrity sha512-wOiF9Vgce7HtWpk4mv0YOCOf6lpJdlA6RK0XTmX/XX2qZnA0+YpLIdVCq8Ym5zBxoeN07Nft3FAarHOuj+XhCA==
+  dependencies:
+    imask "^6.1.0"
+    prop-types "^15.7.2"
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
