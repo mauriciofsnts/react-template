@@ -1,9 +1,13 @@
 import React from 'react'
 import HomePresenter from './home-presenter'
 
-type Props = {}
+type Props = {
+  t: (key: string) => string
+}
 
-const HomeWrapper: React.FC<Props> = () => {
+const HomeWrapper: React.FC<Props> = (props) => {
+  console.log('props: ', props)
+
   return <HomePresenter />
 }
 
