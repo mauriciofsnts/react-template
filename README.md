@@ -84,6 +84,12 @@ C --> A(Axios)
 A <--> C 
 ```
 
+## [WIP] - Dependency injection
+
+Para evitar duplicidade de código, temos os hooks como dependência: 
+
+Router -> Default Props( hooks ) -> Page (recebe os hooks como props)
+
 ## Bibliotecas
 
 | Biblioteca | Função |
