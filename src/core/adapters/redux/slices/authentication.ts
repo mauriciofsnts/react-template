@@ -5,7 +5,7 @@ import {
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { AuthenticationParams } from 'core/entities'
 
-type AuthenticationStateProps = {
+export type AuthenticationStateProps = {
   auth: AuthenticationModel | undefined
   authLoad: boolean
   authError: AuthenticationError | undefined

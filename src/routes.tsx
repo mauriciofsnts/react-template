@@ -6,22 +6,22 @@ import * as Page from './pages'
 import AuthLayout from './layouts/auth'
 import AppLayout from './layouts/app'
 import { useAppDispatch, useAppTranslation } from 'hooks'
-import { AnyAction, Dispatch } from 'redux'
+import { RootState } from 'core/infra'
 
-type RouteProps = {
-  t: (key: any) => string
-  dispatch: Dispatch<AnyAction>
-}
+import { useSelector } from 'react-redux'
 
 type Props = {
-  Page: React.FC<RouteProps>
+  Page: React.FC<WrapperFC>
 }
 
-const BuildPage: React.FC<Props> = ({ Page }): JSX.Element => {
+const BuildPage = ({ Page }: Props): JSX.Element => {
   const dispatch = useAppDispatch()
   const { t } = useAppTranslation()
 
-  return <Page t={t} dispatch={dispatch} />
+  const select = <T extends keyof RootState>(key: T): RootState[T] =>
+    useSelector<RootState, RootState[T]>((state) => state[key])
+
+  return <Page t={t} dispatch={dispatch} select={select} />
 }
 
 const routes = [
