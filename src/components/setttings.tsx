@@ -8,11 +8,20 @@ import {
   IconButton,
   SvgIcon,
   TextField,
-  MenuItem
+  MenuItem,
+  Button,
+  BottomNavigationAction,
+  BottomNavigation
 } from '@mui/material'
 
-import { Close as CloseIcon } from '@mui/icons-material'
+import {
+  Close as CloseIcon,
+  DensityLarge,
+  DensityMedium,
+  DensitySmall
+} from '@mui/icons-material'
 import { useAppTranslation } from 'hooks'
+import { useTableSettings } from 'core/contexts/table-context'
 
 type Props = {
   onClose: () => void
@@ -21,6 +30,7 @@ type Props = {
 
 const Settings: React.FC<Props> = ({ onClose, open }) => {
   const { t, i18n } = useAppTranslation()
+  const { density, handleChangeTableDensity } = useTableSettings()
 
   const selectedLanguage = i18n.language
 
@@ -81,6 +91,33 @@ const Settings: React.FC<Props> = ({ onClose, open }) => {
           <MenuItem value="pt-BR">Português</MenuItem>
           <MenuItem value="en-US">English</MenuItem>
         </TextField>
+
+        <Divider variant="middle" flexItem />
+
+        <Typography variant="overline">Configurações de tabela</Typography>
+
+        <BottomNavigation
+          showLabels
+          sx={{ width: '100%' }}
+          value={density}
+          onChange={(e, v) => handleChangeTableDensity(v)}
+        >
+          <BottomNavigationAction
+            value="compact"
+            label="Compact"
+            icon={<DensitySmall />}
+          />
+          <BottomNavigationAction
+            value="standard"
+            label="Standard"
+            icon={<DensityMedium />}
+          />
+          <BottomNavigationAction
+            value="comfortable"
+            label="Comfortable"
+            icon={<DensityLarge />}
+          />
+        </BottomNavigation>
       </Box>
     </Drawer>
   )
